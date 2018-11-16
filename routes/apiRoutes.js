@@ -16,6 +16,7 @@ app.get('/api/kudos', function (req, res) {
   app.get('/api/user', function (req, res) {
     db.user.find({})
       .then(function (data) {
+      
         res.json(data);
       })
       .catch(function (err) {

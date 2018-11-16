@@ -10,34 +10,37 @@ const displayKudos = function () {
   const getUsers = function () {
     $.get('/api/user/')
       .then(function (data) {
+        console.log(data)
+
+    
+})
   
-    
-    
-      });
   }
 
-function render(data){
+const render = function(data){
   data.forEach(kudo => {
-    console.log(kudo);
-    const div = $('<div>');
-    div.addClass('kudoCard');
-    const messageDiv = $('<div>')
-    messageDiv.text(kudo.body);
-    const senderDiv =$('<div>');
-    senderDiv.text("sender : " + kudo.sender);
 
-    div.append(messageDiv);
-    div.append(senderDiv);
-    $('#messages').append(div);
-  })
+let cardDiv = $('<div>').addClass('card')
+let title = $('<h5>').text(kudo.title)
+let sender = $('<h6>').text(kudo.sender)
+let cardBody = $('<div>').addClass('card-body')
+let reciever = $('<h6>').text(kudo.reciever)
+let body = $('<p>').text(kudo.body)
+cardBody.append(reciever,body)
+cardDiv.append(title, sender, cardBody)
+
+$('#messages').append(cardDiv)
+
+})
 }
 
 $('#submit').on("click", function(){
     const message = {
       title: $('#title').val(),
-      body: $('#message').val(),
       sender: $('#sender').val(),
-      reciever: $('#reciever').val()
+      reciever: $('#reciever').val(),
+      body: $('#message').val(),
+      
     }
     console.log(message)
     $.post('/api/kudos', message, function(res){

@@ -1,18 +1,33 @@
-.card {
+.btnCard {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     text-align: center;
-    width: 60%
+    width: 100%;
+    padding:50px;
+    background-color: black;
 }
 
-.kudoCard{
+#btn {
+    color: black;
+    background-color: white;
+    border-color: white;
+}
+
+.card{
     height: 200px;
-    width: 200px;
-    background-color: blueviolet;
-    color: wheat;
+    width: 100%;
+    background-color: black;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 5px;
     padding:20px;
+}
+
+.card-body {
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+   
 }
