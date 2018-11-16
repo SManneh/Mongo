@@ -25,7 +25,7 @@ app.get('/api/kudos', function (req, res) {
   });
 
   app.post('/api/kudos', function (req, res) {
-    console.log('reached kudos');
+    console.log('reached kudos', req.body)
     db.kudos.create(req.body)
       .then(function (data) {
         res.json(data);
